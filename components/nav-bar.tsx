@@ -36,7 +36,7 @@ const NavBar = () => {
                           key={item.href}
                           href={item.href}
                           aria-current={active ? 'page' : undefined}
-                          className={`inline-flex items-center ${active ? 'px-3 py-1 rounded-full bg-accent/10 text-primary font-semibold' : 'px-2 py-1'} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40`}
+                          className={`inline-flex items-center ${active ? 'px-3 py-1 rounded-full bg-primary/20 dark:bg-primary/10 text-primary font-semibold shadow-m' : 'px-2 py-1'} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40`}
                         >
                           <span className={`${active ? 'font-semibold text-primary' : 'font-normal'} text-sm`}>{item.label}</span>
                         </Link>
