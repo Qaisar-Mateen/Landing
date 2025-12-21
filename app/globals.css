@@ -151,4 +151,104 @@
     transition: none !important;
     will-change: auto !important;
   }
+
+  /* Glass navbar: performant frosted-glass backdrop with depth, directional highlight & fog */
+  .glass-nav {
+    position: relative;
+    /* semi-opaque background tuned for both performance and readability */
+    background-color: rgba(255, 255, 255, 0.62);
+    -webkit-backdrop-filter: blur(8px) saturate(120%);
+    backdrop-filter: blur(8px) saturate(120%);
+    background-clip: padding-box;
+    border-color: rgba(15, 23, 42, 0.06);
+    will-change: transform, opacity, background-color;
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    /* Layered shadows: soft long shadow + deeper dark bottom shadow + subtle inner bottom shading */
+    box-shadow: 0 28px 48px rgba(15, 23, 42, 0.08), 0 6px 18px rgba(15, 23, 42, 0.06), inset 0 -6px 10px rgba(0,0,0,0.04);
+    overflow: visible;
+  }
+
+  /* subtle sheen + directional top-right highlight to acknowledge the aurora source */
+  .glass-nav::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    /* Multiple layers: overall sheen + directional warm highlight in top-right */
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.03) 35%, transparent 55%),
+                      radial-gradient(220px 80px at 88% 6%, rgba(255,200,140,0.12) 0%, rgba(255,200,140,0.04) 30%, transparent 60%);
+    mix-blend-mode: overlay;
+    opacity: 0.95;
+    transition: opacity 260ms ease-in-out, transform 260ms ease-in-out;
+    will-change: opacity, transform;
+  }
+
+  /* fog under the nav to suggest depth; positioned outside the nav box, biased toward left so light appears from top-right */
+  .glass-nav::after {
+    content: "";
+    position: absolute;
+    left: 40%;
+    top: calc(100% - 6px);
+    transform: translateX(-50%);
+    width: 260%;
+    height: 56px;
+    pointer-events: none;
+    background: radial-gradient(ellipse at top right, rgba(15, 23, 42, 0.10) 0%, rgba(15, 23, 42, 0.03) 35%, transparent 65%);
+    filter: blur(10px);
+    opacity: 0.9;
+    transition: opacity 260ms ease-in-out, transform 260ms ease-in-out;
+    will-change: opacity, transform;
+  }
+
+  /* Dark variant */
+  .dark .glass-nav {
+    background-color: rgba(18, 18, 18, 0.48);
+    border-color: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 30px 64px rgba(0, 0, 0, 0.5), 0 8px 24px rgba(0,0,0,0.36), inset 0 -6px 12px rgba(255,255,255,0.02);
+  }
+
+  .dark .glass-nav::before {
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 20%, transparent 50%),
+                      radial-gradient(220px 80px at 88% 6%, rgba(96,165,250,0.10) 0%, rgba(96,165,250,0.03) 30%, transparent 60%);
+    opacity: 0.7;
+    mix-blend-mode: screen;
+  }
+
+  .dark .glass-nav::after {
+    background: radial-gradient(ellipse at top right, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.12) 40%, transparent 70%);
+    opacity: 0.78;
+    filter: blur(14px);
+  }
+
+  /* Fallback: if browser doesn't support backdrop-filter, provide a solid fallback */
+  @supports not ((-webkit-backdrop-filter: blur(8px)) or (backdrop-filter: blur(8px))) {
+    .glass-nav {
+      background-color: rgba(255, 255, 255, 0.92);
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+    }
+    .dark .glass-nav {
+      background-color: rgba(18, 18, 18, 0.92);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+    }
+    .glass-nav::after { display: none; } /* avoid faux fog if no blur support */
+    .glass-nav::before { background-image: linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 20%, transparent 50%); }
+  }
+
+  /* Respect users who prefer reduced motion/visual effects: disable blur and fog */
+  @media (prefers-reduced-motion: reduce) {
+    .glass-nav {
+      -webkit-backdrop-filter: none !important;
+      backdrop-filter: none !important;
+      box-shadow: 0 2px 6px rgba(15,23,42,0.06) !important;
+    }
+    .glass-nav::before, .glass-nav::after {
+      opacity: 0 !important;
+      filter: none !important;
+    }
+  }
 }
