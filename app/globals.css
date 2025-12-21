@@ -273,6 +273,10 @@
     .nav-capsule-indicator {
       transition: none !important;
     }
+    /* Hide the desktop indicator on small screens for mobile layout */
+    @media (max-width: 639px) {
+      .nav-capsule-indicator { display: none !important; }
+    }
   }
 
   /* Depth shadow utilities (from app/depth.css variables) */

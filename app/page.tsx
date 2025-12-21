@@ -1,13 +1,13 @@
-
+'use client';
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-white dark:bg-black">
-      <div className="text-center space-y-5 max-w-2xl z-10">
-        <p className="py-1 px-2 bg-zinc-200/60 dark:bg-zinc-900/40 backdrop-blur-sm font-light rounded-full text-zinc-900 dark:text-white inline-block">Join 7,000+ Users</p>
+    <div className="min-h-screen w-full flex items-center justify-center bg-white dark:bg-black px-4 sm:px-0">
+      <div className="text-center space-y-6 max-w-2xl z-5 py-16 sm:py-0">
+        <p className="py-1 px-3 bg-zinc-200/30 dark:bg-zinc-900/30 backdrop-blur-sm font-light rounded-full text-zinc-900 dark:text-white inline-block text-sm sm:text-base shadow-m">Join 7,000+ Users</p>
         <div className="space-y-3">
-          <h1 className="text-7xl tracking-tight bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 text-transparent h-20 font-semibold">Modern UI Library</h1>
-          <h3 className="text-7xl tracking-tight bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-transparent h-20 font-semibold">For Web Developers</h3>
+          <h1 className="text-4xl sm:text-7xl tracking-tight bg-clip-text bg-linear-to-r from-pink-500 via-purple-500 to-blue-500 text-transparent font-semibold leading-tight">Modern UI Library</h1>
+          <h3 className="text-4xl sm:text-7xl tracking-tight bg-clip-text bg-linear-to-r from-purple-500 via-pink-500 to-blue-500 text-transparent font-semibold leading-tight">For Web Developers</h3>
         </div>
       </div>
     </div>
