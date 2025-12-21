@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import NavBar from "@/components/nav-bar";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,14 +26,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NavBar></NavBar>
-        <AuroraBackground>
-          {children}
-        </AuroraBackground>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange={false}
+        >
+          <NavBar></NavBar>
+          <AuroraBackground>
+            {children}
+          </AuroraBackground>
+        </ThemeProvider>
       </body>
     </html>
   );
