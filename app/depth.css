@@ -1,0 +1,16 @@
+:root {
+    --shadow-s: 
+    inset 0 1px 2px #ffffff30, /* top highlight */
+    0 1px 2px #00000030, /* dark shadow */
+    0 2px 4px #00000015; /* soft shadow */
+
+    --shadow-m: 
+    inset 0 1px 2px #ffffff50, /* top highlight */
+    0 2px 4px #00000030, /* dark shadow */
+    0 4px 8px #00000015; /* soft shadow */
+
+    --shadow-l: 
+    inset 0 1px 2px #ffffff70, /* top highlight */
+    0 4px 6px #00000030, /* dark shadow */
+    0 6px 10px #00000015; /* soft shadow */
+}

@@ -23,7 +23,7 @@ const NavBar = () => {
     }
 
     return (
-        <nav className="site-nav glass-nav z-10 top-8 left-1/2 -translate-x-1/2 fixed flex items-center gap-4 py-2 px-3 rounded-full border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white shadow-sm transition-colors duration-200 ease-in-out" style={{ willChange: 'transform, opacity, background-color, color' }}>
+        <nav className="site-nav glass-nav z-10 top-8 left-1/2 -translate-x-1/2 fixed flex items-center gap-4 py-2 px-3 rounded-full border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-white shadow-m transition-colors duration-200 ease-in-out" style={{ willChange: 'transform, opacity, background-color, color' }}>
             <Link href='/' aria-label="Home" className="flex items-center gap-2">
                 <Feather className="h-6 w-6 text-zinc-900 dark:text-white" aria-hidden="true" />
             </Link>

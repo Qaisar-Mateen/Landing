@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "./depth.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -251,4 +252,10 @@
       filter: none !important;
     }
   }
+
+  /* Depth shadow utilities (from app/depth.css variables) */
+  .shadow-s { box-shadow: var(--shadow-s) !important; }
+  .shadow-m { box-shadow: var(--shadow-m) !important; }
+  .shadow-l { box-shadow: var(--shadow-l) !important; }
+
 }
