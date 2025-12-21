@@ -15,6 +15,8 @@ export function ThemeToggle() {
     setMounted(true)
   }, [])
 
+
+
   if (!mounted) {
     return (
       <Button variant="ghost" size="icon" className="h-9 w-9">

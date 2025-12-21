@@ -144,4 +144,11 @@
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
   }
+
+  /* When the class is present we disable transitions for nav-only elements to avoid flicker */
+  .disable-theme-transition .site-nav,
+  .disable-theme-transition .site-nav * {
+    transition: none !important;
+    will-change: auto !important;
+  }
 }
