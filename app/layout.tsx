@@ -4,6 +4,7 @@ import "./globals.css";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import NavBar from "@/components/nav-bar";
 import { ThemeProvider } from "@/components/theme-provider";
+import { SmoothScrolling } from "@/components/smooth-scrolling";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,10 +37,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange={false}
         >
-          <NavBar></NavBar>
-          <AuroraBackground>
-            {children}
-          </AuroraBackground>
+          <SmoothScrolling>
+            <NavBar></NavBar>
+            <AuroraBackground>
+              {children}
+            </AuroraBackground>
+          </SmoothScrolling>
         </ThemeProvider>
       </body>
     </html>
