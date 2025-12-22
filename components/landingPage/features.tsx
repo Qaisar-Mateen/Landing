@@ -1,4 +1,4 @@
-import ScrollStack, { ScrollStackItem } from "@/components/ui/stack-scroll";
+import ScrollStack, { ScrollStackItem } from "@/components/ui/scroll-stack";
 
 export default function Features() {
   return (
