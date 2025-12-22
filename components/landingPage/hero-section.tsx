@@ -3,7 +3,8 @@
 import { useEffect, useState } from 'react';
 import { Search } from 'lucide-react';
 import { TextAnimate } from '@/components/ui/text-animation';
-
+import { InfiniteSlider } from '@/components/ui/infinite-slider';
+import { ProgressiveBlur } from '@/components/ui/progressive-blur';
 
 export default function HeroSection() {
   const prefix = 'Get Visa for ';
@@ -73,6 +74,110 @@ export default function HeroSection() {
             </div>
           </div>
         </div>
+
+        <div className="mt-8">
+        <section className="pb-0 md:pb-0">
+          <div className="group relative m-auto max-w-6xl px-6">
+            <div className="flex flex-col items-center md:flex-row">
+              <div className="md:max-w-44 md:border-r md:pr-6">
+                <p className="text-end text-md text-foreground">Our Partners</p>
+              </div>
+              <div className="relative py-6 md:w-[calc(100%-11rem)]">
+                <InfiniteSlider speedOnHover={20} speed={40} gap={112}>
+                  <div className="flex">
+                    <img
+                      className="mx-auto h-5 w-fit dark:invert"
+                      src="https://html.tailus.io/blocks/customers/nvidia.svg"
+                      alt="Nvidia Logo"
+                      height="20"
+                      width="auto"
+                    />
+                  </div>
+
+                  <div className="flex">
+                    <img
+                      className="mx-auto h-4 w-fit dark:invert"
+                      src="https://html.tailus.io/blocks/customers/column.svg"
+                      alt="Column Logo"
+                      height="16"
+                      width="auto"
+                    />
+                  </div>
+                  <div className="flex">
+                    <img
+                      className="mx-auto h-4 w-fit dark:invert"
+                      src="https://html.tailus.io/blocks/customers/github.svg"
+                      alt="GitHub Logo"
+                      height="16"
+                      width="auto"
+                    />
+                  </div>
+                  <div className="flex">
+                    <img
+                      className="mx-auto h-5 w-fit dark:invert"
+                      src="https://html.tailus.io/blocks/customers/nike.svg"
+                      alt="Nike Logo"
+                      height="20"
+                      width="auto"
+                    />
+                  </div>
+                  <div className="flex">
+                    <img
+                      className="mx-auto h-5 w-fit dark:invert"
+                      src="https://html.tailus.io/blocks/customers/lemonsqueezy.svg"
+                      alt="Lemon Squeezy Logo"
+                      height="20"
+                      width="auto"
+                    />
+                  </div>
+                  <div className="flex">
+                    <img
+                      className="mx-auto h-4 w-fit dark:invert"
+                      src="https://html.tailus.io/blocks/customers/laravel.svg"
+                      alt="Laravel Logo"
+                      height="16"
+                      width="auto"
+                    />
+                  </div>
+                  <div className="flex">
+                    <img
+                      className="mx-auto h-7 w-fit dark:invert"
+                      src="https://html.tailus.io/blocks/customers/lilly.svg"
+                      alt="Lilly Logo"
+                      height="28"
+                      width="auto"
+                    />
+                  </div>
+
+                  <div className="flex">
+                    <img
+                      className="mx-auto h-6 w-fit dark:invert"
+                      src="https://html.tailus.io/blocks/customers/openai.svg"
+                      alt="OpenAI Logo"
+                      height="24"
+                      width="auto"
+                    />
+                  </div>
+                </InfiniteSlider>
+
+                <div className="bg-linear-to-r from-background absolute inset-y-0 left-[calc(50%-50vw)] sm:left-0 w-20"></div>
+                <div className="bg-linear-to-l from-background absolute inset-y-0 right-[calc(50%-50vw)] sm:right-0 w-20"></div>
+                <ProgressiveBlur
+                  className="pointer-events-none absolute top-0 h-full w-20 left-[calc(50%-50vw)] sm:left-0"
+                  direction="left"
+                  blurIntensity={1}
+                />
+                <ProgressiveBlur
+                  className="pointer-events-none absolute top-0 h-full w-20 right-[calc(50%-50vw)] sm:right-0"
+                  direction="right"
+                  blurIntensity={1}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        </div>
+
       </div>
     </section>
   );
