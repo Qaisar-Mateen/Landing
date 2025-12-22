@@ -89,8 +89,8 @@ export default function PartnersSection() {
               </div>
             </InfiniteSlider>
 
-            <div className="bg-linear-to-r from-background absolute inset-y-0 left-[calc(50%-50vw)] sm:left-0 w-20"></div>
-            <div className="bg-linear-to-l from-background absolute inset-y-0 right-[calc(50%-50vw)] sm:right-0 w-20"></div>
+            <div className="bg-linear-to-r from-background absolute inset-y-0 left-[calc(50%-50vw)] sm:left-0 w-20 transition-none"></div>
+            <div className="bg-linear-to-l from-background absolute inset-y-0 right-[calc(50%-50vw)] sm:right-0 w-20 transition-none"></div>
             <ProgressiveBlur
               className="pointer-events-none absolute top-0 h-full w-20 left-[calc(50%-50vw)] sm:left-0"
               direction="left"
