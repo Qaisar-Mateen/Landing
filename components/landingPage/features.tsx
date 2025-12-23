@@ -8,7 +8,7 @@ export default function Features() {
       {/* Card 1 - Experts */}
       <ScrollStackItem itemClassName="shadow-m bg-zinc-50/80 dark:bg-zinc-900/50 backdrop-blur-sm p-8 rounded-3xl border border-border/50">
         <div className="flex items-start gap-6">
-          <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
+          <div className="flex-shrink-0 shadow-m w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
             <Users className="w-7 h-7 text-primary" />
           </div>
           <div className="flex-1 space-y-3">
@@ -35,7 +35,7 @@ export default function Features() {
       {/* Card 2 - Fast Turnaround */}
       <ScrollStackItem itemClassName="shadow-m bg-zinc-50/80 dark:bg-zinc-900/50 backdrop-blur-sm p-8 rounded-3xl border border-border/50">
         <div className="flex items-start gap-6">
-          <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-green-500/10 flex items-center justify-center">
+          <div className="flex-shrink-0 w-14 h-14 shadow-m rounded-2xl bg-green-500/10 flex items-center justify-center">
             <Zap className="w-7 h-7 text-green-500" />
           </div>
           <div className="flex-1 space-y-3">
@@ -53,7 +53,7 @@ export default function Features() {
       {/* Card 3 - Compliance */}
       <ScrollStackItem itemClassName="shadow-m bg-zinc-50/80 dark:bg-zinc-900/50 backdrop-blur-sm p-8 rounded-3xl border border-border/50">
         <div className="flex items-start gap-6">
-          <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-purple-500/10 flex items-center justify-center">
+          <div className="flex-shrink-0 shadow-m w-14 h-14 rounded-2xl bg-purple-500/10 flex items-center justify-center">
             <ShieldCheck className="w-7 h-7 text-purple-500" />
           </div>
           <div className="flex-1 space-y-3">
@@ -63,7 +63,7 @@ export default function Features() {
               <Button variant="outline" size="sm" className="gap-2 text-black dark:text-white">
                 Learn more <ArrowRight className="w-4 h-4" />
               </Button>
-              <div className="flex -space-x-2">
+              <div className="flex -space-x-2 ">
                 <div className="w-8 h-8 rounded-full bg-zinc-200 dark:bg-zinc-700 border-2 border-background flex items-center justify-center text-xs font-medium text-black dark:text-white">🇺🇸</div>
                 <div className="w-8 h-8 rounded-full bg-zinc-200 dark:bg-zinc-700 border-2 border-background flex items-center justify-center text-xs font-medium text-black dark:text-white">🇬🇧</div>
                 <div className="w-8 h-8 rounded-full bg-zinc-200 dark:bg-zinc-700 border-2 border-background flex items-center justify-center text-xs font-medium text-black dark:text-white">🇦🇪</div>
