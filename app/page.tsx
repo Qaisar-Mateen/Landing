@@ -1,6 +1,7 @@
 "use client";
 
 import Features from "@/components/landingPage/features";
+import Footer from "@/components/landingPage/footer";
 import HeroSection from "@/components/landingPage/hero-section";
 import PartnersSection from "@/components/landingPage/partners-section";
 
@@ -20,6 +21,7 @@ export default function Home() {
         </div>
         <Features />
       </section>
+      <Footer />
     </main>
   );
 }
