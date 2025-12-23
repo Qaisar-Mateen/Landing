@@ -9,7 +9,9 @@ export default function Home() {
     <main>
       <HeroSection />
       <PartnersSection />
-      <Features />
+      <section className="w-full h-screen overflow-hidden">
+        <Features />
+      </section>
     </main>
   );
 }
