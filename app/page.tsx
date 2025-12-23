@@ -4,6 +4,7 @@ import Features from "@/components/landingPage/features";
 import Footer from "@/components/landingPage/footer";
 import HeroSection from "@/components/landingPage/hero-section";
 import PartnersSection from "@/components/landingPage/partners-section";
+import StatsSection from "@/components/landingPage/stats-section";
 import { TextAnimate } from '@/components/ui/text-animation';
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
         </div>
         <Features />
       </section>
+      <StatsSection />
       <Footer />
     </main>
   );
