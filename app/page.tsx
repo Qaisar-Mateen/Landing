@@ -9,7 +9,16 @@ export default function Home() {
     <main>
       <HeroSection />
       <PartnersSection />
-      <section className="w-full h-screen overflow-hidden">
+      <section className="relative z-9 w-full h-screen overflow-hidden">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div className="space-y-6">
+              <p className="text-sm font-medium text-accent">Features</p>
+              <h2 className="text-3xl sm:text-4xl font-semibold text-foreground">Everything you need to build and scale</h2>
+              <p className="text-muted-foreground max-w-xl">Powerful primitives, reliable infrastructure, and a team that supports you from prototype to production. The stack below highlights a few key capabilities that make it easy to ship faster and operate confidently at scale.</p>
+            </div>
+          </div>
+        </div>
         <Features />
       </section>
     </main>

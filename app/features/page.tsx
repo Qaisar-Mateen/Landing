@@ -1,7 +1,5 @@
 'use client';
 
-import Features from "@/components/landingPage/features";
-
 
 
 export default function Home() {
@@ -13,7 +11,6 @@ export default function Home() {
           <h1 className="text-4xl py-5 sm:text-7xl tracking-tight bg-clip-text bg-linear-to-r from-pink-500 via-purple-500 to-blue-500 text-transparent font-semibold leading-tight">Features Page</h1>
         </div>
       </div>
-      <Features />
     </div>
   );
 }

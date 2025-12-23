@@ -1,19 +1,20 @@
 import ScrollStack, { ScrollStackItem } from "@/components/ui/scroll-stack";
+import { Button } from "@/components/ui/button";
 
 export default function Features() {
   return (
-    <ScrollStack>
+    <ScrollStack  blurAmount={2} className="w-full px-30px">
       <ScrollStackItem>
-        <h2>Card 1</h2>
-        <p>This is the first card in the stack</p>
+        <h3 className="text-xl font-semibold">Dedicated network of experts</h3>
+        <p className="mt-2 text-sm text-muted-foreground">Tap into specialised teams that help you move faster without sacrificing quality.</p>
       </ScrollStackItem>
       <ScrollStackItem>
-        <h2>Card 2</h2>
-        <p>This is the second card in the stack</p>
+        <h3 className="text-xl font-semibold">Fast turnaround</h3>
+        <p className="mt-2 text-sm text-muted-foreground">Optimised workflows and responsive support to keep your projects on track.</p>
       </ScrollStackItem>
       <ScrollStackItem>
-        <h2>Card 3</h2>
-        <p>This is the third card in the stack</p>
+        <h3 className="text-xl font-semibold">Compliance & partnerships</h3>
+        <p className="mt-2 text-sm text-muted-foreground">Built with strong partner relationships and compliance in mind so you can scale globally.</p>
       </ScrollStackItem>
     </ScrollStack>
   );

@@ -5,7 +5,7 @@ import { ProgressiveBlur } from '@/components/ui/progressive-blur';
 
 export default function PartnersSection() {
   return (
-    <section className="py-16 md:py-24 bg-background">
+    <section className="relative z-5 py-16 md:py-24 bg-background">
       <div className="group relative m-auto max-w-6xl px-6">
         <div className="flex flex-col items-center md:flex-row">
           <div className="md:max-w-44 md:border-r md:pr-6">
