@@ -59,6 +59,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
   const cardsRef = useRef<HTMLElement[]>([]);
   const lastTransformsRef = useRef(new Map<number, any>());
   const isUpdatingRef = useRef(false);
+  const isAtBoundaryRef = useRef<'top' | 'bottom' | null>(null);
 
   const calculateProgress = useCallback((scrollTop: number, start: number, end: number) => {
     if (scrollTop < start) return 0;
@@ -216,7 +217,47 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     if (!isUpdatingRef.current) {
       updateCardTransforms();
     }
+    
+    // Check if at boundaries for scroll pass-through
+    const scroller = scrollerRef.current;
+    if (scroller) {
+      const { scrollTop, scrollHeight, clientHeight } = scroller;
+      const atTop = scrollTop <= 0;
+      const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
+      
+      if (atTop) {
+        isAtBoundaryRef.current = 'top';
+      } else if (atBottom) {
+        isAtBoundaryRef.current = 'bottom';
+      } else {
+        isAtBoundaryRef.current = null;
+      }
+    }
   }, [updateCardTransforms]);
+
+  // Handle wheel events for scroll pass-through at boundaries
+  const handleWheel = useCallback((e: WheelEvent) => {
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
+    
+    const { scrollTop, scrollHeight, clientHeight } = scroller;
+    const atTop = scrollTop <= 0;
+    const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
+    
+    // If at top and scrolling up, or at bottom and scrolling down, let it pass through
+    if ((atTop && e.deltaY < 0) || (atBottom && e.deltaY > 0)) {
+      // Stop Lenis from handling this event
+      if (lenisRef.current) {
+        lenisRef.current.stop();
+        // Re-enable after a short delay
+        setTimeout(() => {
+          lenisRef.current?.start();
+        }, 50);
+      }
+      // Don't prevent default - let the event bubble to parent
+      return;
+    }
+  }, []);
 
   const setupLenis = useCallback(() => {
     if (useWindowScroll) {
@@ -281,11 +322,20 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
 
     setupLenis();
 
+    // Add wheel event listener for boundary detection
+    const scroller = scrollerRef.current;
+    if (scroller && !useWindowScroll) {
+      scroller.addEventListener('wheel', handleWheel, { passive: true });
+    }
+
     updateCardTransforms();
 
     return () => {
       if (useWindowScroll) {
         window.removeEventListener('scroll', handleScroll);
+      }
+      if (scroller && !useWindowScroll) {
+        scroller.removeEventListener('wheel', handleWheel);
       }
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
@@ -311,7 +361,9 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     useWindowScroll,
     onStackComplete,
     setupLenis,
-    updateCardTransforms
+    updateCardTransforms,
+    handleWheel,
+    handleScroll
   ]);
 
   return (
@@ -319,9 +371,8 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
       className={`relative w-full h-full overflow-y-auto overflow-x-visible scrollbar-hidden ${className}`.trim()}
       ref={scrollerRef}
       style={{
-        overscrollBehavior: 'contain',
+        overscrollBehavior: 'auto',
         WebkitOverflowScrolling: 'touch',
-        scrollBehavior: 'smooth',
         WebkitTransform: 'translateZ(0)',
         transform: 'translateZ(0)',
         willChange: 'scroll-position'
