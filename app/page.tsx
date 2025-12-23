@@ -13,9 +13,8 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
-              <p className="text-sm font-medium text-accent">Features</p>
-              <h2 className="text-3xl sm:text-4xl font-semibold text-foreground">Everything you need to build and scale</h2>
-              <p className="text-muted-foreground max-w-xl">Powerful primitives, reliable infrastructure, and a team that supports you from prototype to production. The stack below highlights a few key capabilities that make it easy to ship faster and operate confidently at scale.</p>
+              <h2 className="text-3xl sm:text-4xl font-semibold text-foreground">Why we are the best in the field</h2>
+              <p className="text-muted-foreground max-w-xl">Powerful primitives, reliable infrastructure, and a team that supports you throughout the process. The stack below highlights a few key capabilities that make it easy for you to succeed.</p>
             </div>
           </div>
         </div>
